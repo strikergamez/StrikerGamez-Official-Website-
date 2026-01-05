@@ -172,7 +172,6 @@
   <div class="nav">
     <a href="#" onclick="showTab('home')">Home</a>
     <a href="#" onclick="showTab('episodes')">Episodes</a>
-    <a href="#" onclick="showTab('schedule')">Schedule</a>
     <a href="#" onclick="showTab('winners')">Winners</a>
     <a href="#" onclick="showTab('players')">Players</a>
     <a href="#" onclick="showTab('enlist')">Enlist</a>
@@ -188,8 +187,8 @@
           <b>StrikerGamez</b> is a hosted Minecraft competition.
         </p>
         <p>
-          Each episode consists of multiple elimination games.
-          Players are removed until one remains.
+          Each episode contains multiple elimination games.
+          One player remains.
         </p>
       </div>
 
@@ -206,11 +205,6 @@
         </div>
 
         <div id="episodeList"></div>
-      </div>
-
-      <div id="schedule" class="box section">
-        <h2>Schedule</h2>
-        <table id="scheduleTable"></table>
       </div>
 
       <div id="winners" class="box section">
@@ -258,7 +252,9 @@
 
 <script>
   function showTab(id) {
-    document.querySelectorAll(".section").forEach(s => s.style.display = "none");
+    document.querySelectorAll(".section").forEach(
+      s => s.style.display = "none"
+    );
     document.getElementById(id).style.display = "block";
   }
 
@@ -289,7 +285,7 @@
     data.forEach(e => {
       episodeList.innerHTML +=
         "<div class='meta'><b>Episode " + e.episode + "</b><br>" +
-        "Start: " + formatTime(e.utc, zone) + "</div>";
+        "Recorded: " + formatTime(e.utc, zone) + "</div>";
 
       if (e.video) {
         episodeList.innerHTML +=
@@ -299,14 +295,6 @@
           "<div class='novideos'>[ ] No videos available</div>";
       }
     });
-
-    /* Schedule */
-    scheduleTable.innerHTML =
-      "<tr><th>Episode</th><th>Time</th></tr>" +
-      data.map(e =>
-        "<tr><td>" + e.episode + "</td><td>" +
-        formatTime(e.utc, zone) + "</td></tr>"
-      ).join("");
 
     /* Winners */
     winnersTable.innerHTML =
