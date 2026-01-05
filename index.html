@@ -9,33 +9,29 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #e6e6e6;
+      background-color: #e5e5e5;
       font-family: Arial, Helvetica, sans-serif;
-      color: #222;
+      color: #000;
     }
 
     .topbar {
-      background: linear-gradient(#f5f5f5, #dcdcdc);
-      border-bottom: 1px solid #aaa;
-      padding: 10px;
+      background-color: #dddddd;
+      border-bottom: 1px solid #999999;
+      padding: 8px;
       text-align: center;
-      font-size: 14px;
-    }
-
-    .topbar b {
-      font-weight: bold;
+      font-size: 13px;
     }
 
     .container {
       max-width: 960px;
       margin: 15px auto;
       background-color: #ffffff;
-      border: 1px solid #bbb;
+      border: 1px solid #999999;
       padding: 10px;
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       margin: 5px 0;
       text-align: center;
       font-weight: normal;
@@ -43,24 +39,24 @@
 
     .subtitle {
       text-align: center;
-      font-size: 13px;
-      color: #555;
+      font-size: 12px;
+      color: #333333;
       margin-bottom: 10px;
     }
 
     .nav {
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      padding: 8px;
+      border-top: 1px solid #999999;
+      border-bottom: 1px solid #999999;
+      padding: 6px;
       text-align: center;
-      font-size: 13px;
-      margin-bottom: 15px;
+      font-size: 12px;
+      margin-bottom: 12px;
     }
 
     .nav a {
-      color: #0033aa;
+      color: #0000aa;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 8px;
     }
 
     .nav a:hover {
@@ -69,66 +65,92 @@
 
     .layout {
       display: flex;
-      gap: 15px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
     .main {
       flex: 2;
-      min-width: 280px;
+      min-width: 260px;
     }
 
     .sidebar {
       flex: 1;
-      min-width: 220px;
+      min-width: 200px;
     }
 
     .box {
-      border: 1px solid #bbb;
-      padding: 8px;
-      margin-bottom: 15px;
-      background-color: #fafafa;
+      border: 1px solid #999999;
+      padding: 6px;
+      margin-bottom: 12px;
+      background-color: #f8f8f8;
     }
 
     .box h2 {
-      font-size: 15px;
-      margin: 0 0 8px 0;
+      font-size: 14px;
+      margin: 0 0 6px 0;
       font-weight: bold;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 4px;
+      border-bottom: 1px solid #999999;
+      padding-bottom: 3px;
     }
 
     .meta {
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 6px;
+      font-size: 11px;
+      color: #333333;
+      margin-bottom: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    th, td {
+      border: 1px solid #999999;
+      padding: 4px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #dddddd;
     }
 
     video {
       width: 100%;
       max-height: 360px;
-      background-color: #000;
-      border: 1px solid #999;
-      margin-bottom: 6px;
+      background-color: #000000;
+      border: 1px solid #999999;
+      margin-bottom: 8px;
+    }
+
+    .novideos {
+      font-size: 12px;
+      color: #333333;
+      padding: 8px;
+      border: 1px dashed #999999;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    select {
+      font-size: 11px;
+      padding: 3px;
+      margin-bottom: 8px;
     }
 
     .footer {
       text-align: center;
-      font-size: 11px;
-      color: #777;
-      margin-top: 20px;
-      padding-top: 10px;
-      border-top: 1px solid #ccc;
+      font-size: 10px;
+      color: #333333;
+      margin-top: 16px;
+      padding-top: 8px;
+      border-top: 1px solid #999999;
     }
 
-    /* Mobile adjustments */
     @media (max-width: 700px) {
       h1 {
-        font-size: 22px;
-      }
-
-      .nav {
-        font-size: 12px;
+        font-size: 20px;
       }
     }
   </style>
@@ -137,155 +159,173 @@
 <body>
 
 <div class="topbar">
-  <b>StrikerGamez</b> — Hosted Minecraft Event Archive
+  StrikerGamez - Competitive Minecraft Episodes
 </div>
 
 <div class="container">
 
   <h1>StrikerGamez</h1>
   <div class="subtitle">
-    Competitive Minecraft Events • Recorded Sessions • Archive
+    Weekly Elimination-Style Minecraft Events
   </div>
 
   <div class="nav">
     <a href="#" onclick="showTab('home')">Home</a>
-    <a href="#" onclick="showTab('videos')">Videos</a>
-    <a href="#" onclick="showTab('about')">About</a>
+    <a href="#" onclick="showTab('episodes')">Episodes</a>
+    <a href="#" onclick="showTab('schedule')">Schedule</a>
+    <a href="#" onclick="showTab('winners')">Winners</a>
+    <a href="#" onclick="showTab('players')">Players</a>
     <a href="#" onclick="showTab('enlist')">Enlist</a>
   </div>
 
   <div class="layout">
 
-    <!-- MAIN CONTENT -->
     <div class="main">
 
-      <!-- HOME -->
       <div id="home" class="box section active">
-        <h2>Welcome</h2>
+        <h2>Overview</h2>
         <p>
-          <b>StrikerGamez</b> is a privately hosted Minecraft competition series.
+          <b>StrikerGamez</b> is a hosted Minecraft competition.
         </p>
         <p>
-          Each session consists of multiple elimination-based games.
-          Players are removed round by round until one remains.
-        </p>
-        <p>
-          Events are recorded and uploaded here for archival viewing.
+          Each episode consists of multiple elimination games.
+          Players are removed until one remains.
         </p>
       </div>
 
-      <!-- VIDEOS -->
-      <div id="videos" class="box section">
-        <h2>Recorded Sessions</h2>
-        <div id="videoList"></div>
+      <div id="episodes" class="box section">
+        <h2>Episodes</h2>
+
+        <div class="meta">
+          Display times in:
+          <select id="timezoneSelect" onchange="renderAll()">
+            <option value="EST">EST</option>
+            <option value="AEST">AEST</option>
+            <option value="GST">GST</option>
+          </select>
+        </div>
+
+        <div id="episodeList"></div>
       </div>
 
-      <!-- ABOUT -->
-      <div id="about" class="box section">
-        <h2>About the Project</h2>
-        <p>
-          This project is inspired by early online competitions
-          and classic Minecraft community events.
-        </p>
-        <ul>
-          <li>Limited player slots</li>
-          <li>Survival and endurance challenges</li>
-          <li>Returning winners</li>
-          <li>Manual event hosting</li>
-        </ul>
+      <div id="schedule" class="box section">
+        <h2>Schedule</h2>
+        <table id="scheduleTable"></table>
       </div>
 
-      <!-- ENLIST -->
+      <div id="winners" class="box section">
+        <h2>Winners</h2>
+        <table id="winnersTable"></table>
+      </div>
+
+      <div id="players" class="box section">
+        <h2>Player Participation</h2>
+        <table id="playersTable"></table>
+      </div>
+
       <div id="enlist" class="box section">
         <h2>Enlistment</h2>
         <p>
-          Participation is limited.
-        </p>
-        <p>
-          Apply using the following form:
+          Apply to participate:
         </p>
         <p>
           <a href="https://forms.gle/8oN75sS9Jt7K4Y5R6" target="_blank">
             Enlistment Form
           </a>
         </p>
-        <p class="meta">
-          By participating, you agree that gameplay and usernames
-          may appear in recorded videos.
-        </p>
       </div>
 
     </div>
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
-
       <div class="box">
-        <h2>Server Information</h2>
-        <p class="meta">
-          Address:<br>
+        <h2>Server</h2>
+        <div class="meta">
+          Address:
+          <br>
           strikergamez.duckdns.org
-        </p>
-        <p class="meta">
-          Platform: Java Edition
-        </p>
+        </div>
       </div>
-
-      <div class="box">
-        <h2>Status</h2>
-        <p class="meta">Events: Weekly</p>
-        <p class="meta">Recording: Enabled</p>
-      </div>
-
-      <div class="box">
-        <h2>Links</h2>
-        <p class="meta">
-          <a href="#" onclick="showTab('videos')">Watch Sessions</a><br>
-          <a href="#" onclick="showTab('enlist')">Apply</a>
-        </p>
-      </div>
-
     </div>
 
   </div>
 
   <div class="footer">
-    © 2026 StrikerGamez • Personal Project Archive
+    (c) 2026 StrikerGamez
   </div>
 
 </div>
 
 <script>
   function showTab(id) {
-    var sections = document.getElementsByClassName("section");
-    for (var i = 0; i < sections.length; i++) {
-      sections[i].style.display = "none";
-    }
+    document.querySelectorAll(".section").forEach(s => s.style.display = "none");
     document.getElementById(id).style.display = "block";
   }
 
-  var episodes = [
-    { number: 1, file: "videos/episode1.mp4" },
-    { number: 2, file: "videos/episode2.mp4" },
-    { number: 3, file: "videos/episode3.mp4" }
+  /* DATA STORE */
+  const data = [
+    {
+      episode: 1,
+      utc: "2026-02-01T00:00:00Z",
+      video: null,
+      players: ["Alex", "Izzac", "Noah"],
+      winner: "Alex"
+    }
   ];
 
-  var videoList = document.getElementById("videoList");
+  function formatTime(utc, zone) {
+    const offsets = { EST: -5, AEST: 10, GST: 4 };
+    const d = new Date(utc);
+    return new Date(d.getTime() + offsets[zone] * 3600000)
+      .toUTCString()
+      .replace("GMT", zone);
+  }
 
-  episodes.forEach(function(ep) {
-    var title = document.createElement("div");
-    title.className = "meta";
-    title.innerHTML =
-      "<b>Session " + ep.number + "</b><br>" +
-      "Recorded Event • Archived";
+  function renderAll() {
+    const zone = timezoneSelect.value;
 
-    var video = document.createElement("video");
-    video.controls = true;
-    video.src = ep.file;
+    /* Episodes */
+    episodeList.innerHTML = "";
+    data.forEach(e => {
+      episodeList.innerHTML +=
+        "<div class='meta'><b>Episode " + e.episode + "</b><br>" +
+        "Start: " + formatTime(e.utc, zone) + "</div>";
 
-    videoList.appendChild(title);
-    videoList.appendChild(video);
-  });
+      if (e.video) {
+        episodeList.innerHTML +=
+          "<video controls src='" + e.video + "'></video>";
+      } else {
+        episodeList.innerHTML +=
+          "<div class='novideos'>[ ] No videos available</div>";
+      }
+    });
+
+    /* Schedule */
+    scheduleTable.innerHTML =
+      "<tr><th>Episode</th><th>Time</th></tr>" +
+      data.map(e =>
+        "<tr><td>" + e.episode + "</td><td>" +
+        formatTime(e.utc, zone) + "</td></tr>"
+      ).join("");
+
+    /* Winners */
+    winnersTable.innerHTML =
+      "<tr><th>Episode</th><th>Winner</th></tr>" +
+      data.map(e =>
+        "<tr><td>" + e.episode + "</td><td>" +
+        (e.winner || "-") + "</td></tr>"
+      ).join("");
+
+    /* Players */
+    playersTable.innerHTML =
+      "<tr><th>Episode</th><th>Players</th></tr>" +
+      data.map(e =>
+        "<tr><td>" + e.episode + "</td><td>" +
+        e.players.join(", ") + "</td></tr>"
+      ).join("");
+  }
+
+  renderAll();
 </script>
 
 </body>
