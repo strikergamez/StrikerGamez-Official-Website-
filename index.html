@@ -1,174 +1,283 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>StrikerGamez</title>
   <meta charset="UTF-8">
+  <title>StrikerGamez</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      background-color: #000000;
-      color: #00ff00;
-      font-family: "Verdana", "Arial", sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #e6e6e6;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+    }
+
+    .topbar {
+      background: linear-gradient(#f5f5f5, #dcdcdc);
+      border-bottom: 1px solid #aaa;
+      padding: 10px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .topbar b {
+      font-weight: bold;
     }
 
     .container {
-      width: 760px;
-      margin: auto;
-      background-color: #111111;
-      border: 3px solid #00ff00;
+      max-width: 960px;
+      margin: 15px auto;
+      background-color: #ffffff;
+      border: 1px solid #bbb;
       padding: 10px;
     }
 
     h1 {
+      font-size: 28px;
+      margin: 5px 0;
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 5px;
+      font-weight: normal;
     }
 
     .subtitle {
       text-align: center;
-      font-size: 12px;
-      color: #66ff66;
-      margin-bottom: 15px;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 10px;
     }
 
     .nav {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 8px;
       text-align: center;
+      font-size: 13px;
       margin-bottom: 15px;
     }
 
     .nav a {
-      color: #00ff00;
+      color: #0033aa;
       text-decoration: none;
       margin: 0 10px;
-      font-weight: bold;
     }
 
     .nav a:hover {
       text-decoration: underline;
     }
 
-    .section {
-      display: none;
-      font-size: 14px;
+    .layout {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .section.active {
-      display: block;
+    .main {
+      flex: 2;
+      min-width: 280px;
+    }
+
+    .sidebar {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .box {
+      border: 1px solid #bbb;
+      padding: 8px;
+      margin-bottom: 15px;
+      background-color: #fafafa;
+    }
+
+    .box h2 {
+      font-size: 15px;
+      margin: 0 0 8px 0;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 4px;
+    }
+
+    .meta {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 6px;
     }
 
     video {
       width: 100%;
-      margin-bottom: 20px;
-      border: 2px solid #00ff00;
+      max-height: 360px;
+      background-color: #000;
+      border: 1px solid #999;
+      margin-bottom: 6px;
     }
 
     .footer {
       text-align: center;
-      font-size: 10px;
+      font-size: 11px;
+      color: #777;
       margin-top: 20px;
-      color: #555555;
+      padding-top: 10px;
+      border-top: 1px solid #ccc;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 700px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      .nav {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+<div class="topbar">
+  <b>StrikerGamez</b> — Hosted Minecraft Event Archive
+</div>
+
 <div class="container">
+
   <h1>StrikerGamez</h1>
-  <div class="subtitle">Unofficial Competitive Minecraft Event Series</div>
+  <div class="subtitle">
+    Competitive Minecraft Events • Recorded Sessions • Archive
+  </div>
 
   <div class="nav">
     <a href="#" onclick="showTab('home')">Home</a>
-    <a href="#" onclick="showTab('about')">About</a>
     <a href="#" onclick="showTab('videos')">Videos</a>
+    <a href="#" onclick="showTab('about')">About</a>
     <a href="#" onclick="showTab('enlist')">Enlist</a>
   </div>
 
-  <!-- HOME -->
-  <div id="home" class="section active">
-    <p>Welcome to <b>StrikerGamez</b>.</p>
-    <p>
-      A weekly elimination-style Minecraft event inspired by classic competition formats.
-      Players face multiple games. Only one becomes the <b>Golden Striker</b>.
-    </p>
-    <p>
-      Events run on Saturdays.<br>
-      New games are added over time.
-    </p>
-  </div>
+  <div class="layout">
 
-  <!-- ABOUT -->
-  <div id="about" class="section">
-    <p>
-      <b>StrikerGamez</b> is a hosted Minecraft event series.
-    </p>
-    <ul>
-      <li>Multiple elimination games</li>
-      <li>Survival & endurance focused</li>
-      <li>Limited players per event</li>
-      <li>Winners may return in future events</li>
-    </ul>
-    <p>
-      Episodes are recorded and published after events conclude.
-    </p>
-  </div>
+    <!-- MAIN CONTENT -->
+    <div class="main">
 
-  <!-- VIDEOS -->
-  <div id="videos" class="section">
-    <p><b>Episodes</b></p>
-    <div id="videoList"></div>
-  </div>
+      <!-- HOME -->
+      <div id="home" class="box section active">
+        <h2>Welcome</h2>
+        <p>
+          <b>StrikerGamez</b> is a privately hosted Minecraft competition series.
+        </p>
+        <p>
+          Each session consists of multiple elimination-based games.
+          Players are removed round by round until one remains.
+        </p>
+        <p>
+          Events are recorded and uploaded here for archival viewing.
+        </p>
+      </div>
 
-  <!-- ENLIST -->
-  <div id="enlist" class="section">
-    <p><b>Enlistment</b></p>
-    <p>
-      Player slots are limited.
-    </p>
-    <p>
-      To participate, follow this link: https://forms.gle/8oN75sS9Jt7K4Y5R6
-    </p>
-    <p>
-      Filling out the form will put you on a waitlist and when you are chosen you will be dm'd on discord
-    </p>
-    <p>
-      By participating, you agree that gameplay and usernames may appear in published videos.
-    </p>
+      <!-- VIDEOS -->
+      <div id="videos" class="box section">
+        <h2>Recorded Sessions</h2>
+        <div id="videoList"></div>
+      </div>
+
+      <!-- ABOUT -->
+      <div id="about" class="box section">
+        <h2>About the Project</h2>
+        <p>
+          This project is inspired by early online competitions
+          and classic Minecraft community events.
+        </p>
+        <ul>
+          <li>Limited player slots</li>
+          <li>Survival and endurance challenges</li>
+          <li>Returning winners</li>
+          <li>Manual event hosting</li>
+        </ul>
+      </div>
+
+      <!-- ENLIST -->
+      <div id="enlist" class="box section">
+        <h2>Enlistment</h2>
+        <p>
+          Participation is limited.
+        </p>
+        <p>
+          Apply using the following form:
+        </p>
+        <p>
+          <a href="https://forms.gle/8oN75sS9Jt7K4Y5R6" target="_blank">
+            Enlistment Form
+          </a>
+        </p>
+        <p class="meta">
+          By participating, you agree that gameplay and usernames
+          may appear in recorded videos.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="box">
+        <h2>Server Information</h2>
+        <p class="meta">
+          Address:<br>
+          strikergamez.duckdns.org
+        </p>
+        <p class="meta">
+          Platform: Java Edition
+        </p>
+      </div>
+
+      <div class="box">
+        <h2>Status</h2>
+        <p class="meta">Events: Weekly</p>
+        <p class="meta">Recording: Enabled</p>
+      </div>
+
+      <div class="box">
+        <h2>Links</h2>
+        <p class="meta">
+          <a href="#" onclick="showTab('videos')">Watch Sessions</a><br>
+          <a href="#" onclick="showTab('enlist')">Apply</a>
+        </p>
+      </div>
+
+    </div>
+
   </div>
 
   <div class="footer">
-    © Alexander L and Izzac G• StrikerGamez
+    © 2026 StrikerGamez • Personal Project Archive
   </div>
+
 </div>
 
 <script>
   function showTab(id) {
     var sections = document.getElementsByClassName("section");
     for (var i = 0; i < sections.length; i++) {
-      sections[i].classList.remove("active");
+      sections[i].style.display = "none";
     }
-    document.getElementById(id).classList.add("active");
+    document.getElementById(id).style.display = "block";
   }
 
-  // EDIT THIS LIST WHEN YOU ADD VIDEOS
   var episodes = [
     { number: 1, file: "videos/episode1.mp4" },
     { number: 2, file: "videos/episode2.mp4" },
     { number: 3, file: "videos/episode3.mp4" }
   ];
 
-  episodes.sort(function(a, b) {
-    return a.number - b.number;
-  });
-
   var videoList = document.getElementById("videoList");
 
   episodes.forEach(function(ep) {
-    var title = document.createElement("p");
-    title.innerHTML = "<b>StrikerGamez Episode " + ep.number + "</b>";
+    var title = document.createElement("div");
+    title.className = "meta";
+    title.innerHTML =
+      "<b>Session " + ep.number + "</b><br>" +
+      "Recorded Event • Archived";
 
     var video = document.createElement("video");
     video.controls = true;
