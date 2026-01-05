@@ -9,7 +9,10 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #e5e5e5;
+      background-color: #cccccc;
+      background-image: url("bg.png");
+      background-repeat: repeat;
+      background-attachment: fixed;
       font-family: Arial, Helvetica, sans-serif;
       color: #000;
     }
@@ -51,6 +54,7 @@
       text-align: center;
       font-size: 12px;
       margin-bottom: 12px;
+      background-color: #f5f5f5;
     }
 
     .nav a {
@@ -148,6 +152,7 @@
       margin-top: 16px;
       padding-top: 8px;
       border-top: 1px solid #999999;
+      background-color: #ffffff;
     }
 
     @media (max-width: 700px) {
@@ -197,146 +202,4 @@
       <div id="episodes" class="box section">
         <h2>Episodes</h2>
 
-        <div class="meta">
-          Display times in:
-          <select id="timezoneSelect" onchange="renderAll()">
-            <option value="EST">EST</option>
-            <option value="AEST">AEST</option>
-            <option value="GST">GST</option>
-          </select>
-        </div>
-
-        <div id="episodeList"></div>
-      </div>
-
-      <div id="winners" class="box section">
-        <h2>Winners</h2>
-        <table id="winnersTable"></table>
-      </div>
-
-      <div id="database" class="box section">
-        <h2>Player Database</h2>
-        <table id="databaseTable"></table>
-      </div>
-
-      <div id="enlist" class="box section">
-        <h2>Enlistment</h2>
-        <p>
-          Apply to participate:
-        </p>
-        <p>
-          <a href="https://forms.gle/8oN75sS9Jt7K4Y5R6" target="_blank">
-            Enlistment Form
-          </a>
-        </p>
-      </div>
-
-    </div>
-
-    <div class="sidebar">
-      <div class="box">
-        <h2>Server</h2>
-        <div class="meta">
-          Address:
-          <br>
-          strikergamez.duckdns.org
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer">
-    (c) 2026 StrikerGamez
-  </div>
-
-</div>
-
-<script>
-  function showTab(id) {
-    document.querySelectorAll(".section").forEach(
-      s => s.style.display = "none"
-    );
-    document.getElementById(id).style.display = "block";
-  }
-
-  /* EPISODES */
-  const episodes = [
-    {
-      episode: 1,
-      utc: "2026-02-01T00:00:00Z",
-      video: null
-    }
-  ];
-
-  /* PLAYER DATABASE (EDIT THIS ONLY) */
-  const players = {
-    Test: {
-      name: "Admin",
-      episodes: [-1],
-      wins: []
-    }
-  };
-
-  function formatTime(utc, zone) {
-    const offsets = { EST: -5, AEST: 10, GST: 4 };
-    const d = new Date(utc);
-    return new Date(d.getTime() + offsets[zone] * 3600000)
-      .toUTCString()
-      .replace("GMT", zone);
-  }
-
-  function renderAll() {
-    const zone = timezoneSelect.value;
-
-    /* Episodes */
-    episodeList.innerHTML = "";
-    episodes.forEach(e => {
-      episodeList.innerHTML +=
-        "<div class='meta'><b>Episode " + e.episode + "</b><br>" +
-        "Recorded: " + formatTime(e.utc, zone) + "</div>";
-
-      if (e.video) {
-        episodeList.innerHTML +=
-          "<video controls src='" + e.video + "'></video>";
-      } else {
-        episodeList.innerHTML +=
-          "<div class='novideos'>[ ] No videos available</div>";
-      }
-    });
-
-    /* Winners */
-    winnersTable.innerHTML =
-      "<tr><th>Episode</th><th>Winner</th></tr>" +
-      Object.keys(players).map(p =>
-        players[p].wins.map(w =>
-          "<tr><td>" + w + "</td><td>" + p + "</td></tr>"
-        ).join("")
-      ).join("");
-
-    /* Database */
-    databaseTable.innerHTML =
-      "<tr>" +
-      "<th>Username</th>" +
-      "<th>Name</th>" +
-      "<th>Episodes Played</th>" +
-      "<th>Golden Strikes</th>" +
-      "<th>Episodes Won</th>" +
-      "</tr>" +
-      Object.keys(players).map(u => {
-        const p = players[u];
-        return "<tr>" +
-          "<td>" + u + "</td>" +
-          "<td>" + p.name + "</td>" +
-          "<td>" + p.episodes.join(", ") + "</td>" +
-          "<td>" + p.wins.length + "</td>" +
-          "<td>" + (p.wins.length ? p.wins.join(", ") : "-") + "</td>" +
-        "</tr>";
-      }).join("");
-  }
-
-  renderAll();
-</script>
-
-</body>
-</html>
+        <
